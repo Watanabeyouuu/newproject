@@ -1,0 +1,18 @@
+Machine:   yosorodeMacBookPro.local in domain 
+User:      hanxinhai
+Mode:      64-Bit
+Display:   Display not detectable
+Driver:    Driver not detectable
+CPU:       Name: Intel(R) Core(TM) i7-8850H CPU @ 2.60GHz
+           Model: 158, Family: 6, Stepping: 10 
+           Total Threads: 12
+           Features: MMX SSE SSE2 SSE3 SSSE3 SSE4.1 SSE4.2 AES AVX AVX2 FMA F16C POPCNT RDTSCP RDRAND
+Base path: /Applications/Adobe Premiere Pro CC 2018/Adobe Premiere Pro CC 2018.app/Contents/MacOS/
+Arguments: 
+
+21:36:16 [IrLog]           LogFile initialized
+21:36:16 [GlobalSettings]  Loading user settings from /Users/hanxinhai/Documents/Adobe/Lumetri/9.0/settings/User_Settings.xml
+21:36:35 [GlobalSettings]  Last object UID: 0x00000001
+21:36:35 [IrLog]           Closing log file
+
+03/24/19

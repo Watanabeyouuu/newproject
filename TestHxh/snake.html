@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+</body>
+<script>
+    var snake,timer;
+    function Snake(){
+        this.color = 'black';
+        this.position = 'absolute';
+        this.size = 20;
+        this.direct = 'down';
+        this.body = [[3,2,null],[2,2,null],[1,2,null]];
+        this.setDirect = function(code){
+           switch(code)
+           {
+                case 39:
+                    this.direct = 'right';
+                    break;
+                case 37:
+                    this.direct = 'left';
+                    break;
+                case 38:
+                    this.direct = 'up';
+                    break;
+                case 40:
+                    this.direct = 'down';
+                    break;
+           }
+        }
+        this.show = function(){
+            for(var i = 0;i < this.body.length;i ++){
+                if(this.body[i][2] == null){
+                    this.body[i][2] = document.createElement('div');
+                    this.body[i][2].style.width = this.size + 'PX';
+                    this.body[i][2].style.height = this.size + 'px';
+                    this.body[i][2].style.backgroundColor = this.color;
+                    this.body[i][2].style.position = this.position;
+                    // this.body[i][2].style.left= this.body[i][0] * this.size + '1px';
+                    // this.body[i][2].style.top = this.body[i][1] * this.size + '1px';
+                    document.getElementsByTagName('body')[0].appendChild(this.body[i][2]);
+                }
+                this.body[i][2].style.left= this.body[i][0] * this.size + 'px';
+                this.body[i][2].style.top = this.body[i][1] * this.size + 'px';
+            }
+        }
+
+        this.move = function (){
+            for(var i = this.body.length - 1;i > 0;i --){
+                    this.body[i][0] = this.body[i-1][0];
+                    this.body[i][1] = this.body[i-1][1];
+            }
+            switch(this.direct){
+                case 'right':
+                this.body[0][0] ++;
+                break;
+                case 'left':
+                this.body[0][0] --;
+                break;
+                case 'up':
+                this.body[0][1] --;
+                break;
+                case 'down':
+                this.body[0][1] ++;
+                break;
+                default:
+                return;
+        }
+            this.show();
+    }
+}
+
+
+    window.onload = function(){
+        snake = new Snake();
+        snake.show();
+        timer = setInterval('snake.move()',100);
+        document.onkeydown = function (){
+            var code;
+            if(window.event){
+                code = window.event.keyCode;
+            }else
+            {
+                code = event.keyCode;
+            }
+        snake.setDirect(code);
+       };
+    }
+</script>
+</html>
